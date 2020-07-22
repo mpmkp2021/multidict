@@ -1,5 +1,5 @@
 stages:
-- stage: arm64
+- stage: azure-linux-test-aarch64
   displayName: 'aarch64'
 
   jobs:

@@ -5,7 +5,7 @@ parameters:
   matrix: []
 
 jobs:
-- job: arm64
+- job: 'arm64'
   pool:
     vmImage: ubuntu:latest
 

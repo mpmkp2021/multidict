@@ -1,5 +1,5 @@
 stages:
-- stage: test
+- stage: test_arm
   displayName: 'Run tests'
 
   jobs:
@@ -87,7 +87,7 @@ stages:
     - task: UsePythonVersion@0
       inputs:
         versionSpec: '$(python.version)'
-        architecture: 'x64'
+        architecture: 'arm64'
 
     - script: |
         python -m pip install --upgrade pip setuptools wheel

@@ -5,11 +5,11 @@ parameters:
   matrix: []
 
 jobs:
-- job: ${{ parameters.name }}
-  pool:
-    vmImage: ${{ parameters.vmImage }}
-  strategy:
-    matrix:
+ - job: ${{ parameters.name }}
+   pool:
+     vmImage: ${{ parameters.vmImage }}
+   strategy:
+     matrix:
       ${{ insert }}: ${{ parameters.matrix }}
 
   steps:

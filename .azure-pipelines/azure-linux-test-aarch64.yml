@@ -1,15 +1,22 @@
-parameters:
-  name: ''
-  vmImage: ''
-  pool: ''
-  matrix: []
+stages:
+- stage: lint
+  displayName: 'aarch64'
 
-jobs:
-- job: 'arm64'
-  pool:
-    vmImage: 'ubuntu:latest'
+  jobs:
+  - job: 'arm64'
+    pool:
+      vmImage: 'ubuntu-latest'
 
-  steps:
+    #steps:
+    #- checkout: self
+     # submodules: true
+      #clean: true
+
+    #- task: UsePythonVersion@0
+     # inputs:
+      #  versionSpec: '3.7'
+       # architecture: 'x64'
+
     - script: |
         sudo apt-get install qemu
         sudo apt-get install qemu-user
@@ -20,5 +27,5 @@ jobs:
       displayName: 'Regietering qemu'
     - script: |
         export DOCKER_IMAGE=condaforge/linux-anvil-aarch64
-        bash .azure-pipelines/run_docker_build.sh
+        bash buildscripts/incremental/run_docker_build.sh
       displayName: 'Running AArch64 build'

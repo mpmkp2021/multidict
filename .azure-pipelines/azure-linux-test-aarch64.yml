@@ -6,6 +6,11 @@ stages:
   - job: 'arm64'
     pool:
       vmImage: 'ubuntu-latest'
+    
+    steps:
+    - checkout: self
+      submodules: true
+      clean: true
 
     - script: |
         sudo apt-get install qemu

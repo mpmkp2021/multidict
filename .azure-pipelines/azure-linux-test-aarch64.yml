@@ -5,12 +5,9 @@ parameters:
   matrix: []
 
 jobs:
-- job: ${{ parameters.name }}
+- job: arm64
   pool:
-    vmImage: ${{ parameters.vmImage }}
-  strategy:
-    matrix:
-      ${{ insert }}: ${{ parameters.matrix }}
+    vmImage: ubuntu:latest
 
   steps:
     - script: |

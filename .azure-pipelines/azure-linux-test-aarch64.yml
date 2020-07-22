@@ -1,5 +1,5 @@
 stages:
-- stage: azure-linux-test-aarch64
+- stage: azure_linux_test_aarch
   displayName: 'aarch64'
 
   jobs:
@@ -15,7 +15,7 @@ stages:
     - task: UsePythonVersion@0
       inputs:
         versionSpec: '3.7'
-        architecture: 'arm64'
+        architecture: 'aarch64'
 
     - script: |
         sudo apt-get install qemu

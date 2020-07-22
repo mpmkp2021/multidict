@@ -7,16 +7,6 @@ stages:
     pool:
       vmImage: 'ubuntu-latest'
 
-    steps:
-    - checkout: self
-      submodules: true
-      clean: true
-
-    - task: UsePythonVersion@0
-      inputs:
-        versionSpec: '3.7'
-        architecture: 'arm64'
-
     - script: |
         sudo apt-get install qemu
         sudo apt-get install qemu-user

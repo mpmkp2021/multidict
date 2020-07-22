@@ -41,11 +41,11 @@ echo "Installing archiconda"
 #${FEEDSTOCK_ROOT}/buildscripts/incremental/setup_conda_environment.sh
 export PATH='/opt/conda/bin':${PATH}
 echo "Setting up Conda environment"
-${FEEDSTOCK_ROOT}/buildscripts/incremental/setup_conda_environment.sh
+${FEEDSTOCK_ROOT}/.azure-pipelines/setup_conda_environment.sh
 echo "Building numba"
 #source deactivate
-${FEEDSTOCK_ROOT}/buildscripts/incremental/build.sh
+${FEEDSTOCK_ROOT}/.azure-pipelines/build.sh
 conda install -y flake8
 #flake8 numba
-echo "Testing numba"
-${FEEDSTOCK_ROOT}/buildscripts/incremental/test.sh
+#echo "Testing numba"
+#${FEEDSTOCK_ROOT}/.azure-pipelines/test.h

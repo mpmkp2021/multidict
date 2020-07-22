@@ -22,5 +22,5 @@ stages:
       displayName: 'Regietering qemu'
     - script: |
         export DOCKER_IMAGE=condaforge/linux-anvil-aarch64
-        bash buildscripts/incremental/run_docker_build.sh
+        bash .azure-pipelines/run_docker_build.sh
       displayName: 'Running AArch64 build'

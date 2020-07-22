@@ -38,7 +38,7 @@ docker run ${DOCKER_RUN_ARGS} \
            -e CI \
            $DOCKER_IMAGE \
            bash \
-           /home/conda/feedstock_root/.azure-pipelines/build_steps.sh
+            .azure-pipelines/build_steps.sh
 
 # verify that the end of the script was reached
 test -f "$DONE_CANARY"

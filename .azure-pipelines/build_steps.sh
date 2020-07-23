@@ -5,7 +5,7 @@
 
 set -xeuo pipefail
 export PYTHONUNBUFFERED=1
-export FEEDSTOCK_ROOT="${FEEDSTOCK_ROOT:-/home/conda/feedstock_root}"
+export FEEDSTOCK_ROOT=$(cd "$(dirname "$0")/.."; pwd;)
 export RECIPE_ROOT="${RECIPE_ROOT:-/home/conda/recipe_root}"
 #export CI_SUPPORT="${FEEDSTOCK_ROOT}/.ci_support"
 #export CONFIG_FILE="${CI_SUPPORT}/${CONFIG}.yaml"
@@ -42,10 +42,10 @@ echo "Installing archiconda"
 export PATH='/opt/conda/bin':${PATH}
 echo "Setting up Conda environment"
 ${FEEDSTOCK_ROOT}/.azure-pipelines/setup_conda_environment.sh
-echo "Building numba"
+echo "Building multidict"
 #source deactivate
 ${FEEDSTOCK_ROOT}/.azure-pipelines/build.sh
 conda install -y flake8
 #flake8 numba
 #echo "Testing numba"
-#${FEEDSTOCK_ROOT}/.azure-pipelines/test.h
+${FEEDSTOCK_ROOT}/.azure-pipelines/test.h

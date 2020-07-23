@@ -32,3 +32,12 @@ towncrier --yes
 pip install -U twine wheel
 python setup.py sdist bdist_wheel
 twine check dist/*
+python -m pip install --upgrade pip setuptools wheel
+python setup.py install
+python -m pip install -r requirements/pytest.txt
+python -m pip install pytest-azurepipelines
+python -m pytest tests -vv
+python -m coverage xml
+python -m pip install codecov
+python -m codecov -f coverage.xml -X gcov
+echo "test complete"

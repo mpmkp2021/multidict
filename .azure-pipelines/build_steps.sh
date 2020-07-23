@@ -16,7 +16,7 @@ conda-build:
 CONDARC
 
 sudo yum update -y
-sudo yum install gcc gcc-c++ python3-devel wget make -y
+sudo yum install gcc gcc-c++ python3-devel wget make libenchant-dev -y
 cd '/home/conda/feedstock_root'
 export CONDA_ENV='travisci'
 echo "Installing requirement"
@@ -25,7 +25,6 @@ make flake8
 pip install -e .
 export MULTIDICT_NO_EXTENSIONS='1'
 make mypy
-sudo yum install libenchant-dev -y
 pip install -r requirements/doc-spelling.txt
 pip install -r requirements/towncrier.txt
 towncrier --yes

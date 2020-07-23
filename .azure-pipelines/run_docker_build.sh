@@ -7,7 +7,7 @@
 
 set -xeo pipefail
 
-FEEDSTOCK_ROOT=$(cd "$(dirname "$0")/../.."; pwd;)
+FEEDSTOCK_ROOT=$(cd "$(dirname "$0")/.."; pwd;)
 #RECIPE_ROOT="${FEEDSTOCK_ROOT}/recipe"
 
 docker info

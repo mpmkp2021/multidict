@@ -22,6 +22,6 @@ stages:
       displayName: 'Regietering qemu'
     - script: |
         sudo install -d -m 0777 /usr/envs
-        export DOCKER_IMAGE=condaforge/linux-anvil-aarch64
+        export DOCKER_IMAGE=quay.io/pypa/manylinux2014_aarch64
         bash .azure-pipelines/run_docker_build.sh
       displayName: 'Running AArch64 build'

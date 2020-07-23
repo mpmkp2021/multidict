@@ -25,7 +25,7 @@ make flake8
 pip install -e .
 export MULTIDICT_NO_EXTENSIONS='1'
 make mypy
-yum install libenchant-dev
+sudo yum install libenchant-dev -y
 pip install -r requirements/doc-spelling.txt
 pip install -r requirements/towncrier.txt
 towncrier --yes

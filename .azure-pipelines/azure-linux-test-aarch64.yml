@@ -21,6 +21,7 @@ stages:
     - script: docker run --rm --privileged hypriot/qemu-register
       displayName: 'Regietering qemu'
     - script: |
+        sudo install -d -m 0777 /usr/envs
         export DOCKER_IMAGE=condaforge/linux-anvil-aarch64
         bash .azure-pipelines/run_docker_build.sh
       displayName: 'Running AArch64 build'

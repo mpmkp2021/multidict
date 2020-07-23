@@ -23,7 +23,7 @@ echo "Installing requirement"
 pip install -r requirements/lint.txt
 make flake8
 pip install -e .
-export MULTIDICT_NO_EXTENSIONS= 1
+export MULTIDICT_NO_EXTENSIONS='1'
 make mypy
 yum install libenchant-dev
 pip install -r requirements/doc-spelling.txt

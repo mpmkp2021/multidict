@@ -16,7 +16,7 @@ conda-build:
 CONDARC
 
 sudo yum update -y
-sudo yum install gcc gcc-c++ python3-devel wget -y
+sudo yum install gcc gcc-c++ python3-devel wget make -y
 cd '/home/conda/feedstock_root'
 export CONDA_ENV='travisci'
 echo "Installing requirement"

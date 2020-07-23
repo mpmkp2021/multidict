@@ -16,7 +16,7 @@ conda-build:
 CONDARC
 
 echo "Installing archiconda"
-${FEEDSTOCK_ROOT}/.azure-pipelines/install_miniconda.sh
+.azure-pipelines/install_miniconda.sh
 export PATH='/opt/conda/bin':${PATH}
 
 

@@ -15,6 +15,11 @@ conda-build:
  root-dir: ${FEEDSTOCK_ROOT}/build_artifacts
 CONDARC
 
+echo "Installing archiconda"
+${FEEDSTOCK_ROOT}/.azure-pipelines/install_miniconda.sh
+export PATH='/opt/conda/bin':${PATH}
+
+
 sudo yum update -y
 sudo yum install gcc gcc-c++ python3-devel wget make libenchant-dev -y
 cd '/home/conda/feedstock_root'

@@ -41,7 +41,7 @@ echo "Installing archiconda"
 #${FEEDSTOCK_ROOT}/buildscripts/incremental/setup_conda_environment.sh
 export PATH='/opt/conda/bin':${PATH}
 echo "Setting up Conda environment"
-${FEEDSTOCK_ROOT}/.azure-pipelines/setup_conda_environment.sh
+sudo ${FEEDSTOCK_ROOT}/.azure-pipelines/setup_conda_environment.sh
 echo "Building multidict"
 #source deactivate
 ${FEEDSTOCK_ROOT}/.azure-pipelines/build.sh

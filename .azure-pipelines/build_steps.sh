@@ -17,7 +17,7 @@ CONDARC
 
 cd '/home/conda/feedstock_root'
 echo "Installing archiconda"
-.azure-pipelines/install_conda_aarch64.sh
+bash .azure-pipelines/install_conda_aarch64.sh
 export PATH='/opt/conda/bin':${PATH}
 
 

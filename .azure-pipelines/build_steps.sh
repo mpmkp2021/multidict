@@ -15,6 +15,7 @@ conda-build:
  root-dir: ${FEEDSTOCK_ROOT}/build_artifacts
 CONDARC
 
+yum install sudo
 sudo yum update -y
 sudo yum install gcc gcc-c++ python3-devel wget make libenchant-dev -y
 export CONDA_ENV='travisci'

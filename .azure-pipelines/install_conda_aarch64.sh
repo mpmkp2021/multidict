@@ -7,6 +7,7 @@ wget -q "https://github.com/conda-forge/miniforge/releases/download/4.8.2-1/Mini
 chmod +x archiconda.sh
 ./archiconda.sh -b -p /opt/conda
 export PATH="opt/conda/bin:$PATH"
+export PATH="opt/conda/:$PATH"
 hash -r
 conda config --set always_yes yes --set changeps1 no
 conda update -q conda

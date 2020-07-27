@@ -15,15 +15,13 @@ conda-build:
  root-dir: ${FEEDSTOCK_ROOT}/build_artifacts
 CONDARC
 
+sudo yum update -y
+sudo yum install gcc gcc-c++ python3-devel wget make libenchant-dev -y
+export CONDA_ENV='travisci'
 cd '/home/conda/feedstock_root'
 echo "Installing archiconda"
 bash .azure-pipelines/install_conda_aarch64.sh
 export PATH='/opt/conda/bin':${PATH}
-
-
-sudo yum update -y
-sudo yum install gcc gcc-c++ python3-devel wget make libenchant-dev -y
-export CONDA_ENV='travisci'
 echo "Installing requirement"
 pip install -r requirements/lint.txt
 make flake8

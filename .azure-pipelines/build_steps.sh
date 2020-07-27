@@ -15,6 +15,7 @@ conda-build:
  root-dir: ${FEEDSTOCK_ROOT}/build_artifacts
 CONDARC
 
+cd '/home/conda/feedstock_root'
 echo "Installing archiconda"
 .azure-pipelines/install_conda_aarch64.sh
 export PATH='/opt/conda/bin':${PATH}
@@ -22,7 +23,6 @@ export PATH='/opt/conda/bin':${PATH}
 
 sudo yum update -y
 sudo yum install gcc gcc-c++ python3-devel wget make libenchant-dev -y
-cd '/home/conda/feedstock_root'
 export CONDA_ENV='travisci'
 echo "Installing requirement"
 pip install -r requirements/lint.txt

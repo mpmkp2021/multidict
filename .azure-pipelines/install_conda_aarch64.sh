@@ -9,7 +9,7 @@ chmod +x archiconda.sh
 yum -y install mlocate
 updatedb
 locate conda
-export PATH="opt/conda/bin:$PATH"
+export PATH="/opt/conda/bin:$PATH"
 conda --version
 hash -r
 conda config --set always_yes yes --set changeps1 no

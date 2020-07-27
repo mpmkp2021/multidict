@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -v -e
+
+# Install Miniconda
+wget -q "https://github.com/conda-forge/miniforge/releases/download/4.8.2-1/Miniforge3-4.8.2-1-Linux-aarch64.sh" -O archiconda.sh
+chmod +x archiconda.sh
+./archiconda.sh -b -p /opt/conda
+export PATH="$HOME/miniconda/bin:$PATH"
+hash -r
+conda config --set always_yes yes --set changeps1 no
+conda update -q conda

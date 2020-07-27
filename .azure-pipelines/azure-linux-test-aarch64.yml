@@ -13,6 +13,7 @@ stages:
       clean: true
 
     - script: |
+        sudo apt-get update
         sudo apt-get install qemu
         sudo apt-get install qemu-user
         sudo apt-get install qemu-user-static

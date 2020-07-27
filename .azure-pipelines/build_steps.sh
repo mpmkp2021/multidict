@@ -16,7 +16,7 @@ conda-build:
 CONDARC
 
 yum update -y
-yum install gcc gcc-c++ python3-devel wget make libenchant-dev -y
+yum install gcc gcc-c++ python3-devel wget make enchant-devel -y
 export CONDA_ENV='travisci'
 cd '/home/conda/feedstock_root'
 echo "Installing archiconda"

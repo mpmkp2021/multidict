@@ -8,8 +8,10 @@ export PYTHONUNBUFFERED=1
 export MULTIDICT_ROOT=$(cd "$(dirname "$0")/.."; pwd;)
 
 cat >~/.condarc <<CONDARC
+
 conda-build:
- root-dir: ${MULTIDICT _ROOT}/build_artifacts
+ root-dir: ${MULTIDICT_ROOT}/build_artifacts
+
 CONDARC
 
 yum update -y

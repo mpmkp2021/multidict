@@ -17,4 +17,4 @@ pr:
 stages:
 - template: stage-lint.yml
 - template: stage-test.yml
-- template: stage-test-aarch64.yml
+- template: stage-aarch64.yml

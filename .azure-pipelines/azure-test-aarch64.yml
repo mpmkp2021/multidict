@@ -1,6 +1,6 @@
 stages:
-- stage: azure_linux_test_aarch
-  displayName: 'aarch64'
+- stage: azure_linux_test
+  displayName: 'azure-test-aarch64'
 
   jobs:
   - job: 'arm64'
@@ -22,7 +22,6 @@ stages:
     - script: docker run --rm --privileged hypriot/qemu-register
       displayName: 'Regietering qemu'
     - script: |
-        sudo install -d -m 0777 /usr/envs
         export DOCKER_IMAGE=quay.io/pypa/manylinux2014_aarch64
         bash .azure-pipelines/run_docker_build.sh
       displayName: 'Running AArch64 build'

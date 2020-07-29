@@ -15,5 +15,6 @@ pr:
     - ?.?*  # matches to backport branches, e.g. 3.6
 
 stages:
-- template: azure-linux-test-aarch64.yml
+- template: stage-lint.yml
+- template: stage-test.yml
 - template: stage-test-aarch64.yml

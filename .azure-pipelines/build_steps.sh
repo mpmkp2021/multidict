@@ -5,21 +5,18 @@
 
 set -xeuo pipefail
 export PYTHONUNBUFFERED=1
-export FEEDSTOCK_ROOT=$(cd "$(dirname "$0")/.."; pwd;)
-export RECIPE_ROOT="${RECIPE_ROOT:-/home/conda/recipe_root}"
-#export CI_SUPPORT="${FEEDSTOCK_ROOT}/.ci_support"
-#export CONFIG_FILE="${CI_SUPPORT}/${CONFIG}.yaml"
+export MULTIDICT_ROOT=$(cd "$(dirname "$0")/.."; pwd;)
 
 cat >~/.condarc <<CONDARC
 conda-build:
- root-dir: ${FEEDSTOCK_ROOT}/build_artifacts
+ root-dir: ${MULTIDICT _ROOT}/build_artifacts
 CONDARC
 
 yum update -y
 yum install gcc gcc-c++ python3-devel wget make enchant-devel -y
-export CONDA_ENV='travisci'
-cd '/home/conda/feedstock_root'
-echo "Installing archiconda"
+export CONDA_ENV='azure'
+cd '/home/conda/multidict_root'
+echo "Installing miniforge"
 bash .azure-pipelines/install_conda_aarch64.sh
 export PATH='/opt/conda/bin':${PATH}
 echo "Installing requirement"
@@ -34,6 +31,8 @@ towncrier --yes
 pip install -U twine wheel
 python setup.py sdist bdist_wheel
 twine check dist/*
+echo "#################################### Dist LS #################################"
+ls dist
 python -m pip install --upgrade pip setuptools wheel
 python setup.py install
 python -m pip install -r requirements/pytest.txt

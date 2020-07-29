@@ -35,8 +35,7 @@ python setup.py sdist bdist_wheel
 twine check dist/*
 echo "#################################### Dist LS #################################"
 ls dist
-cd dist/
-tar -xvf multidict-4.7.6.tar.gz
+tar -xvf dist/multidict-4.7.6.tar.gz
 python -m pip install --upgrade pip setuptools wheel
 python setup.py install
 python -m pip install -r requirements/pytest.txt

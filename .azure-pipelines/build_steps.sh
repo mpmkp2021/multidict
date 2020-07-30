@@ -22,20 +22,19 @@ echo "Installing miniforge"
 bash .azure-pipelines/install_conda_aarch64.sh
 export PATH='/opt/conda/bin':${PATH}
 echo "Installing requirement"
-pip install -r requirements/lint.txt
-make flake8
-pip install -e .
-export MULTIDICT_NO_EXTENSIONS='1'
-make mypy
-pip install -r requirements/doc-spelling.txt
-pip install -r requirements/towncrier.txt
-towncrier --yes
-pip install -U twine wheel
+#pip install -r requirements/lint.txt
+#make flake8
+#pip install -e .
+#export MULTIDICT_NO_EXTENSIONS='1'
+#make mypy
+#pip install -r requirements/doc-spelling.txt
+#pip install -r requirements/towncrier.txt
+#towncrier --yes
+#pip install -U twine wheel
 python setup.py bdist_wheel
-twine check dist/*
+#twine check dist/*
 echo "#################################### Dist LS #################################"
 ls dist
-tar -xvf dist/multidict-4.7.6.tar.gz
 python -m pip install --upgrade pip setuptools wheel
 python setup.py install
 python -m pip install -r requirements/pytest.txt

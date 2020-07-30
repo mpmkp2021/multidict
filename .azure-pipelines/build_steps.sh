@@ -31,7 +31,7 @@ pip install -r requirements/doc-spelling.txt
 pip install -r requirements/towncrier.txt
 towncrier --yes
 pip install -U twine wheel
-python setup.py sdist bdist_wheel
+python setup.py bdist_wheel
 twine check dist/*
 echo "#################################### Dist LS #################################"
 ls dist

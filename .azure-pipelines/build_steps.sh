@@ -7,12 +7,12 @@ set -xeuo pipefail
 export PYTHONUNBUFFERED=1
 export MULTIDICT_ROOT=$(cd "$(dirname "$0")/.."; pwd;)
 
-cat >~/.condarc <<CONDARC
+#cat >~/.condarc <<CONDARC
 
-conda-build:
- root-dir: ${MULTIDICT_ROOT}/build_artifacts
+#conda-build:
+ #root-dir: ${MULTIDICT_ROOT}/build_artifacts
 
-CONDARC
+#CONDARC
 
 yum update -y
 yum install gcc gcc-c++ python3-devel wget make enchant-devel -y

@@ -33,16 +33,18 @@ echo "Installing requirement"
 #pip install -r requirements/towncrier.txt
 #towncrier --yes
 #pip install -U twine wheel
-python -m pip install --upgrade pip setuptools wheel
-python setup.py bdist_wheel
+/opt/python/cp37-cp37m/bin/pip install virtualenv
+/opt/python/cp37-cp37m/bin/python -m virtualenv .venv
+.venv/bin/pip install --upgrade pip setuptools wheel
+.venv/bin/python setup.py bdist_wheel
 #twine check dist/*
 echo "#################################### Dist LS #################################"
 ls dist
-python setup.py install
-python -m pip install -r requirements/pytest.txt
-python -m pip install pytest-azurepipelines
-python -m pytest tests -vv
-python -m coverage xml
-python -m pip install codecov
-python -m codecov -f coverage.xml -X gcov
+.venv/bin/python setup.py install
+.venv/bin/python -m pip install -r requirements/pytest.txt
+.venv/bin/pip install pytest-azurepipelines
+.venv/bin/python -m pytest tests -vv
+.venv/bin/python -m coverage xml
+.venv/bin/python -m pip install codecov
+.venv/bin/python -m codecov -f coverage.xml -X gcov
 echo "test complete"

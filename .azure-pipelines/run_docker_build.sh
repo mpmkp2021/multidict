@@ -13,13 +13,13 @@ ARTIFACTS="$MULTIDICT_ROOT/build_artifacts"
 mkdir -p "$ARTIFACTS"
 
 docker run ${DOCKER_RUN_ARGS} \
-           -v "${MULTIDICT_ROOT}":/home/conda/multidict_root:rw,z \
+           -v "${MULTIDICT_ROOT}":/home/multidict_root:rw,z \
            -e TEST_START_INDEX \
            -e TEST_COUNT \
            -e HOST_USER_ID \
            -e CI \
            $DOCKER_IMAGE \
-           bash /home/conda/multidict_root/.azure-pipelines/build_steps.sh
+           bash /home/multidict_root/.azure-pipelines/build_steps.sh
 
 # verify that the end of the script was reached
 test -f "$DONE_CANARY"

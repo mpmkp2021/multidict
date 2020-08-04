@@ -17,8 +17,9 @@ export MULTIDICT_ROOT=$(cd "$(dirname "$0")/.."; pwd;)
 yum update -y
 yum install gcc gcc-c++ python3-devel wget make enchant-devel -y
 #export CONDA_ENV='azure'
-pwd
 cd '/home/multidict_root'
+pwd
+ls
 #echo "Installing miniforge"
 #bash .azure-pipelines/install_conda_aarch64.sh
 export PATH='/opt/bin':${PATH}
@@ -32,11 +33,11 @@ echo "Installing requirement"
 #pip install -r requirements/towncrier.txt
 #towncrier --yes
 #pip install -U twine wheel
+python -m pip install --upgrade pip setuptools wheel
 python setup.py bdist_wheel
 #twine check dist/*
 echo "#################################### Dist LS #################################"
 ls dist
-python -m pip install --upgrade pip setuptools wheel
 python setup.py install
 python -m pip install -r requirements/pytest.txt
 python -m pip install pytest-azurepipelines

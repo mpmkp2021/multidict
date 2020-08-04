@@ -17,10 +17,10 @@ CONDARC
 yum update -y
 yum install gcc gcc-c++ python3-devel wget make enchant-devel -y
 export CONDA_ENV='azure'
-cd '/home/conda/multidict_root'
-echo "Installing miniforge"
-bash .azure-pipelines/install_conda_aarch64.sh
-export PATH='/opt/conda/bin':${PATH}
+cd '/home/multidict_root'
+#echo "Installing miniforge"
+#bash .azure-pipelines/install_conda_aarch64.sh
+export PATH='/opt/bin':${PATH}
 echo "Installing requirement"
 #pip install -r requirements/lint.txt
 #make flake8

@@ -16,7 +16,8 @@ export MULTIDICT_ROOT=$(cd "$(dirname "$0")/.."; pwd;)
 
 yum update -y
 yum install gcc gcc-c++ python3-devel wget make enchant-devel -y
-export CONDA_ENV='azure'
+#export CONDA_ENV='azure'
+pwd
 cd '/home/multidict_root'
 #echo "Installing miniforge"
 #bash .azure-pipelines/install_conda_aarch64.sh

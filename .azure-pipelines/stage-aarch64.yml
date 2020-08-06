@@ -39,9 +39,9 @@ stages:
         export MULTIDICT_ROOT=$(cd "$(dirname "$0")/.."; pwd;)
         export HOST_USER_ID=$(id -u)
         #bash .azure-pipelines/run_docker_build.sh '$(python.version)'
-        bash docker run \
-             -v "${MULTIDICT_ROOT}":/home/multidict_root:rw,z \
-             -e HOST_USER_ID \
-             $DOCKER_IMAGE \
-             bash /home/multidict_root/.azure-pipelines/build_steps.sh "$(python.version)"
-      displayName: 'Running AArch64 build'
+        docker run \
+            -v "${MULTIDICT_ROOT}":/home/multidict_root:rw,z \
+            -e HOST_USER_ID \
+            $DOCKER_IMAGE \
+            bash /home/multidict_root/.azure-pipelines/build_steps.sh "$(python.version)"
+        displayName: 'Running AArch64 build'

@@ -29,7 +29,7 @@ stages:
     - task: UsePythonVersion@0
       inputs:
         versionSpec: '$(python.version)'
-        architecture: 'arm64'  
+        architecture: 'x64'  
       
     - script: docker run --rm --privileged hypriot/qemu-register
       displayName: 'Regietering qemu'

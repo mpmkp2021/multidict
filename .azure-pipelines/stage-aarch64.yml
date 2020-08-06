@@ -38,6 +38,7 @@ stages:
         set -xeo pipefail
         export MULTIDICT_ROOT=$(cd "$(dirname "$0")/.."; pwd;)
         export HOST_USER_ID=$(id -u)
+        export PATH='/opt/bin':${PATH}
         #bash .azure-pipelines/run_docker_build.sh '$(python.version)'
         docker run \
             -v "${MULTIDICT_ROOT}":/home/multidict_root:rw,z \

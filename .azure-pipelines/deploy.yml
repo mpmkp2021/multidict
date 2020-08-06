@@ -16,7 +16,7 @@ resources:
   repositories:
   - repository: templates
     type: github
-    name: Dish1306/azure-pipelines
+    name: aio-libs/azure-pipelines
     endpoint: aio-libs
 
 stages:

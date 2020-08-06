@@ -33,20 +33,17 @@ echo "Installing requirement"
 #pip install -r requirements/towncrier.txt
 #towncrier --yes
 #pip install -U twine wheel
-echo "python version"
-echo "$(python.version)"
-/opt/python/$(python.version)/bin/pip install virtualenv
-/opt/python/$(python.version)/bin/python -m virtualenv .venv
-.venv/bin/pip install --upgrade pip setuptools wheel
-.venv/bin/python setup.py bdist_wheel
+echo "$1"
+/opt/_internal/cpython-$1*/bin/python -m pip install -U setuptools wheel
+/opt/_internal/cpython-$1*/bin/python setup.py bdist_wheel
 #twine check dist/*
 echo "#################################### Dist LS #################################"
 ls dist
-.venv/bin/python setup.py install
-.venv/bin/python -m pip install -r requirements/pytest.txt
-.venv/bin/pip install pytest-azurepipelines
-.venv/bin/python -m pytest tests -vv
-.venv/bin/python -m coverage xml
-.venv/bin/python -m pip install codecov
-.venv/bin/python -m codecov -f coverage.xml -X gcov
+/opt/_internal/cpython-$1*/bin/python setup.py install
+/opt/_internal/cpython-$1*/bin/python -m pip install -r requirements/pytest.txt
+/opt/_internal/cpython-$1*/bin/python -m pip install pytest-azurepipelines
+/opt/_internal/cpython-$1*/bin/python -m pytest tests -vv
+/opt/_internal/cpython-$1*/bin/python -m coverage xml
+/opt/_internal/cpython-$1*/bin/python -m pip install codecov
+/opt/_internal/cpython-$1*/bin/python -m codecov -f coverage.xml -X gcov
 echo "test complete"

@@ -33,8 +33,8 @@ echo "Installing requirement"
 #pip install -r requirements/towncrier.txt
 #towncrier --yes
 #pip install -U twine wheel
-/opt/python/cp37-cp37m/bin/pip install virtualenv
-/opt/python/cp37-cp37m/bin/python -m virtualenv .venv
+/opt/python/$(python.version)/bin/pip install virtualenv
+/opt/python/$(python.version)/bin/python -m virtualenv .venv
 .venv/bin/pip install --upgrade pip setuptools wheel
 .venv/bin/python setup.py bdist_wheel
 #twine check dist/*

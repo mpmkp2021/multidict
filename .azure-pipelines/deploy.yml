@@ -17,7 +17,7 @@ resources:
   - repository: templates
     type: github
     name: Dish1306/azure-pipelines
-    endpoint: aio-libs
+    #endpoint: aio-libs
 
 stages:
 - template: stage-lint.yml
@@ -150,6 +150,6 @@ stages:
                 python setup.py bdist_wheel
               displayName: 'Make wheel'
 
-- template: templates/stage-publish.yml@templates
-  parameters:
-    github: release-upload
+#- template: templates/stage-publish.yml@templates
+  #parameters:
+    #github: release-upload

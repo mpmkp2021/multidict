@@ -7,15 +7,15 @@ stages:
     strategy:
       matrix:
         Py35-C-Linux:
-          python.version: 'cp35-cp35m'
+          python.version: '3.5'
           no_extensions: ''
           image: 'ubuntu-latest'
         Py36-C-Linux:
-          python.version: 'cp36-cp36m'
+          python.version: '3.6'
           no_extensions: ''
           image: 'ubuntu-latest'
         Py37-C-Linux:
-          python.version: 'cp37-cp37m'
+          python.version: '3.7'
           no_extensions: ''
           image: 'ubuntu-latest'
     pool:

@@ -34,9 +34,9 @@ echo "Installing requirement"
 #towncrier --yes
 #pip install -U twine wheel
 echo "python version"
-echo "${{python.version}}"
-/opt/python/${{python.version}}/bin/pip install virtualenv
-/opt/python/${{python.version}}/bin/python -m virtualenv .venv
+echo "$(python.version)"
+/opt/python/$(python.version)/bin/pip install virtualenv
+/opt/python/$(python.version)/bin/python -m virtualenv .venv
 .venv/bin/pip install --upgrade pip setuptools wheel
 .venv/bin/python setup.py bdist_wheel
 #twine check dist/*

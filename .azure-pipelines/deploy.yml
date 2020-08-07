@@ -97,27 +97,27 @@ stages:
       matrix:
         py35 x64:
           python.code: 'cp35-cp35m'
-          manylinux: 'manylinux_64'
+          manylinux: 'manylinux_aarch64'
         py36 x64:
           python.code: 'cp36-cp36m'
-          manylinux: 'manylinux_64'
+          manylinux: 'manylinux_aarch64'
         py37 x64:
           python.code: 'cp37-cp37m'
-          manylinux: 'manylinux_64'
+          manylinux: 'manylinux_aarch64'
         py38 x64:
           python.code: 'cp38-cp38'
-          manylinux: 'manylinux_64'
+          manylinux: 'manylinux_aarch64'
     pool:
       vmImage: 'ubuntu-latest'
-    container: manylinux
+
     steps:
       - checkout: self
         submodules: true
         clean: true
         
-     - script: docker run --rm --privileged hypriot/qemu-register
+    - script: docker run --rm --privileged hypriot/qemu-register
       displayName: 'Regietering qemu'
-     - script: |
+    - script: |
           export DOCKER_IMAGE=quay.io/pypa/manylinux2014_aarch64
           set -xeo pipefail
           export MULTIDICT_ROOT=$(cd "$(dirname "$0")/../1/s"; pwd;)
@@ -132,7 +132,7 @@ stages:
           source .build-venv/bin/activate
           pip install -U setuptools wheel
         displayName: 'Install tools'
-
+      
       - script: |
           source .build-venv/bin/activate
           python setup.py bdist_wheel

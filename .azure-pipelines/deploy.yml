@@ -21,7 +21,7 @@ resources:
   - repository: templates
     type: github
     name: Dish1306/azure-pipelines
-    endpoint: aio-libs
+    endpoint: Dish1306
 
 stages:
 - template: stage-lint.yml
@@ -90,7 +90,23 @@ stages:
       - template: templates/step-store-dist.yml@templates
         parameters:
           folder: wheelhouse
-          
+
+resources:
+  containers:
+  - container: manylinux2014_aarch64
+    image: quay.io/pypa/manylinux2014_aarch64
+  repositories:
+  - repository: templates
+    type: github
+    name: Dish1306/azure-pipelines
+    endpoint: aio-libs
+
+stages:
+- template: stage-aarch64.yml
+
+- stage: build
+  displayName: 'Build'
+
   - job: manylinuxaarch64
     displayName: 'ManylinuxAarch64'
     strategy:
@@ -115,24 +131,19 @@ stages:
         submodules: true
         clean: true
         
-    - script: docker run --rm --privileged hypriot/qemu-register
-      displayName: 'Regietering qemu'
     - script: |
-          export DOCKER_IMAGE=quay.io/pypa/manylinux2014_aarch64
-          set -xeo pipefail
-          export MULTIDICT_ROOT=$(cd "$(dirname "$0")/../1/s"; pwd;)
-          export HOST_USER_ID=$(id -u)
-          docker run -v "${MULTIDICT_ROOT}":/home/multidict_root:rw,z \
-                     -e HOST_USER_ID \
-                     $DOCKER_IMAGE \
+          docker run --rm --privileged hypriot/qemu-register
+        displayName: 'Regietering qemu'
+    
+    - script: |
           /opt/python/$(python.code)/bin/python -m venv .build-venv
         displayName: 'Use Python $(python.code)'
-
-      - script: |
+    
+    - script: |
           source .build-venv/bin/activate
           pip install -U setuptools wheel
         displayName: 'Install tools'
-      
+
       - script: |
           source .build-venv/bin/activate
           python setup.py bdist_wheel
@@ -145,7 +156,6 @@ stages:
       - template: templates/step-store-dist.yml@templates
         parameters:
           folder: wheelhouse
-
 
   - job:
     strategy:

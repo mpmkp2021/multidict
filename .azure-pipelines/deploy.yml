@@ -1,8 +1,12 @@
 trigger:
-  tags:
+  batch: true
+  branches:
     include:
-    - v?.*
-pr: none
+    - master
+    - ?.?*  # matches to backport branches, e.g. 3.6
+  tags:
+    exclude:
+    - '*'
 
 
 variables:
@@ -13,11 +17,11 @@ resources:
   containers:
   - container: manylinux
     image: quay.io/pypa/manylinux1_x86_64
-  #repositories:
-  #- repository: templates
-    #type: github
-    #name: Dish1306/azure-pipelines
-    #endpoint: aio-libs
+  repositories:
+  - repository: templates
+    type: github
+    name: Dish1306/azure-pipelines
+    endpoint: aio-libs
 
 stages:
 - template: stage-lint.yml

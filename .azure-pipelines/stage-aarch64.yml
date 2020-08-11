@@ -39,7 +39,7 @@ stages:
         pwd
         echo $HOME
         ls
-        export MULTIDICT_ROOT=$(cd "$(dirname "$0")/../1/s"; pwd;)
+        export MULTIDICT_ROOT=$(cd `pwd`)
         export HOST_USER_ID=$(id -u)
         docker run -v "${MULTIDICT_ROOT}":/home/multidict_root:rw,z \
                    -e HOST_USER_ID \

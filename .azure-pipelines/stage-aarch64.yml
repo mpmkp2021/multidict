@@ -36,7 +36,7 @@ stages:
     - script: |
         export DOCKER_IMAGE=quay.io/pypa/manylinux2014_aarch64
         set -xeo pipefail
-        export MULTIDICT_ROOT=$(cd `pwd`)
+        export MULTIDICT_ROOT=`pwd`
         pwd
         echo $HOME
         ls        
